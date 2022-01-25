@@ -1,60 +1,119 @@
-/* tüm elemanlar için margin, padding sıfırlanması ve yükseklik ve genişliği width ve height değerleriyle eşleyebilmek için border-box değerini aktif ettim.  */
+/* tüm elemanlar için margin, 
+padding sıfırlanması ve 
+yükseklik ve genişliği width 
+ve height değerleriyle 
+eşleyebilmek için border-box 
+değerini aktif ettim.  */
 
-*, *::before, *::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-/* body tüm görüş alanını kapsaması için ayarladım ve gözü daha az yorması için tam beyaz yerine beyaza yakın bir renk kullandım. */
-body{
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(241, 235, 235);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* body tüm görüş alanını 
+kapsaması için ayarladım ve 
+gözü daha az yorması için tam 
+beyaz yerine beyaza yakın bir 
+renk kullandım. Elemanları
+ortalamak için flexbox özelliklerinden
+yararlandım. */
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(241, 235, 235);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-img{
-    width: 100%;
+/* Tüm resimlerin ebeveyninin 
+içine sığmasını sağladım.*/
+
+img {
+  width: 100%;
 }
 
-.kapsayici {
+/* Varsayılan h1 yazı tipi çok 
+büyük olduğu için boyutunu 
+1rem->16px'e düşürdüm. 
+Sonrasında genişliği yüzde 
+80'e eşitleyip geri kalan 
+yüzde 20'lik boşluğu sağdan ve 
+soldan auto değeri ile margin 
+olarak ayırdım. Bu sayede h1 
+başlıklarımız ebeveyni içinde 
+ortalanmış oldu. Üstten alttan
+padding vererek okunabilirliği
+arttırdım. */
+
+h1 {
+  font-size: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem 0;
 }
+
+/* Kartın ön ve arka yüzünü 
+aynı konumda tutabilmek için 
+position:relative; değerini 
+ebeveyn olan dönen-kart 
+sınıflı elemana ekledim.  
+Yükseklik ve genişliği ayarlayıp
+köşeleri 3px yuvarladım ve arka
+plan rengi verdim. Tüm elemanları
+aynı 3 boyutlu alanda görebilmek
+için ebeveyn elemana
+transform-style: preserve-3d;
+değerini verdim. Perspective
+özelliği ise arka yüzün
+döndüğünü anlayabilmemiz
+için ekledim. transition
+özellikleri geçiş süresi
+gibi değerleri ayarlayarak yine
+rotasyonu algılayabilmemiz için
+ekledim. */
 
 .donen-kart {
-    position: relative;
-    width: 300px;
-    height: 360px;
-    border-radius: 3px;
-    background-color: thistle;
-    perspective: 900px;
-    transform-style: preserve-3d;
-    transition: transform 1s;
-  }
+  position: relative;
+  width: 300px;
+  height: 360px;
+  border-radius: 3px;
+  background-color: thistle;
+  perspective: 600px;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+}
 
-  .kart-yuzu {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    backface-visibility: hidden;
-  }
+/* Hem ön hem de arka yüzü aynı
+konuma getirerek genişliği ve 
+yüksekliği ebeveynin boyutlarına
+eşledim. Backface-visibility
+transform edilmiş bir elemanın
+arkasının görünüp görünmemesini ayarlar.
+hidden değeri ile arka ve ön yüzün arkasının 
+görünmemesini sağladım. */
 
-  .donen-kart__icerik-alani--arka-yüz{
-      
-        background-color: tomato;
-        transform: rotateY( 180deg );
+.kart-yuzu {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
 
-  }
+/* Kartın arka yüzünü Y ekseninde 180
+derece döndürdüm ve arka plan rengi verdim. */
+.donen-kart--arka-yuz {
+  background-color: tomato;
+  transform: rotateY(180deg);
+}
 
-  .donen-kart:hover{
-      transform: rotateY(180deg);
-  }
+/* Ebeveyni fare imleci üzerine geldiğinde
+180 derece döndürdüğümde kartın arka yüzü
+düz ön yüzü ise ters hale gelmiş oldu.  */
 
-  h1{
-      font-size: 1rem;
-      width: 80%;
-      margin: 0 auto;
-      padding: 1rem 0;
-  }
-
+.donen-kart:hover {
+  transform: rotateY(180deg);
+}
