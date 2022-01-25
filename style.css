@@ -1,0 +1,14 @@
+/* tüm elemanlar için margin, padding sıfırlanması ve yükseklik ve genişliği width ve height değerleriyle eşleyebilmek için border-box değerini aktif ettim.  */
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* body tüm görüş alanını kapsaması için ayarladım ve gözü daha az yorması için tam beyaz yerine beyaza yakın bir renk kullandım. */
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(241, 235, 235);
+}
+
