@@ -1,5 +1,5 @@
-/* tüm elemanlar için margin, 
-padding sıfırlanması ve 
+/* Tüm elemanlar için margin, 
+padding sıfırlaması yaptım ve 
 yükseklik ve genişliği width 
 ve height değerleriyle 
 eşleyebilmek için border-box 
@@ -12,7 +12,7 @@ değerini aktif ettim.  */
   padding: 0;
   box-sizing: border-box;
 }
-/* body tüm görüş alanını 
+/* body'i tüm görüş alanını 
 kapsaması için ayarladım ve 
 gözü daha az yorması için tam 
 beyaz yerine beyaza yakın bir 
@@ -25,6 +25,7 @@ body {
   height: 100vh;
   background-color: rgb(241, 235, 235);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -116,4 +117,10 @@ düz ön yüzü ise ters hale gelmiş oldu.  */
 
 .donen-kart:hover {
   transform: rotateY(180deg);
+}
+
+p{      
+    text-align: center;
+    width: 80%;
+    padding: 1rem 0;
 }
